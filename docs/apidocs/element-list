@@ -1,0 +1,12 @@
+com.telros.telros
+com.telros.telros.config
+com.telros.telros.controller
+com.telros.telros.dto.request
+com.telros.telros.dto.response
+com.telros.telros.exception
+com.telros.telros.mapper
+com.telros.telros.model
+com.telros.telros.repository
+com.telros.telros.security
+com.telros.telros.security.jwt
+com.telros.telros.service

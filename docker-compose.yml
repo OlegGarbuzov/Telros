@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/telros
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+    networks:
+      - telros-network
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5439:5432"
+    environment:
+      - POSTGRES_DB=telros
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - telros-network
+
+networks:
+  telros-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
